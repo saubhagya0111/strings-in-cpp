@@ -1,18 +1,32 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
-//Reversing a string 
+
 int main()
 {
-    string s, s1;
-    int c;
+    ios_base::sync_with_stdio(0);
+    string s;
     cout << "Enter the string\n";
     getline(cin, s);
-    //property of the concatenation of the strings has been used 
-    for (int i = s.length(); i >= 0; --i)
+    string s1;
+    int l = s.length(), flag = 0;
+    for (int i = 0; i < s.length(); i++)
     {
-        s1 += s[i];
+        if (s[i] != s[l - i - 1])
+        //The palindromic string has its nth charecter from the starting and the corresponding charecter from the end as identical 
+        //Flag variable has been used in order to check the above criteria
+        {
+            flag = 1;
+            break;
+        }
     }
-    cout << "Reversed string-->" << s1 << "\n";
-    
+    if (flag == 0)
+    {
+        cout << "Palindrome\n";
+    }
+    else if (flag == 1)
+    {
+        cout << "Not a Palindrome\n";
+    }
+
     return 0;
 }
